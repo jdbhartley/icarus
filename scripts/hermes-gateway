@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""
+Compatibility wrapper for the legacy hermes-gateway entry point.
+
+The runtime-facing gateway branding moved to Icarus. Keep this file so older
+automation that still calls ./scripts/hermes-gateway continues to work.
+"""
+
+import os
+import sys
+from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).parent.resolve()
+TARGET = SCRIPT_DIR / "icarus-gateway"
+
+
+def main() -> None:
+    if not TARGET.exists():
+        print(f"Missing gateway target: {TARGET}", file=sys.stderr)
+        sys.exit(1)
+    os.execv(sys.executable, [sys.executable, str(TARGET), *sys.argv[1:]])
+
+
+if __name__ == "__main__":
+    main()
