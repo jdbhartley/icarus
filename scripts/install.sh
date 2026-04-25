@@ -727,12 +727,14 @@ clone_repo() {
             cd "$INSTALL_DIR"
 
             local autostash_ref=""
+            local autostash_selector=""
             if [ -n "$(git status --porcelain)" ]; then
                 local stash_name
                 stash_name="hermes-install-autostash-$(date -u +%Y%m%d-%H%M%S)"
                 log_info "Local changes detected, stashing before update..."
                 git stash push --include-untracked -m "$stash_name"
                 autostash_ref="$(git rev-parse --verify refs/stash)"
+                autostash_selector="$(git stash list --format='%gd %H' | awk -v ref="$autostash_ref" '$2 == ref { print $1; exit }')"
             fi
 
             git fetch origin
@@ -756,7 +758,12 @@ clone_repo() {
                 if [ "$restore_now" = "yes" ]; then
                     log_info "Restoring local changes..."
                     if git stash apply "$autostash_ref"; then
-                        git stash drop "$autostash_ref" >/dev/null
+                        if [ -n "$autostash_selector" ] && git stash drop "$autostash_selector" >/dev/null; then
+                            :
+                        else
+                            log_warn "Restored local changes, but couldn't drop the saved stash entry automatically."
+                            log_warn "You can remove it later with: git stash drop ${autostash_selector:-stash@{N}}"
+                        fi
                         log_warn "Local changes were restored on top of the updated codebase."
                         log_warn "Review git diff / git status if Icarus behaves unexpectedly."
                     else
