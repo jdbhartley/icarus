@@ -1,10 +1,10 @@
 ---
 sidebar_position: 8
-title: "Use Voice Mode with Hermes"
+title: "Use Voice Mode with Icarus"
 description: "A practical guide to setting up and using Hermes voice mode across CLI, Telegram, Discord, and Discord voice channels"
 ---
 
-# Use Voice Mode with Hermes
+# Use Voice Mode with Icarus
 
 This guide is the practical companion to the [Voice Mode feature reference](/docs/user-guide/features/voice-mode).
 

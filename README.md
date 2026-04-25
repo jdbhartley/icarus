@@ -169,8 +169,8 @@ Everything else in this document has been rewritten to present the project as **
 
 - 💬 [Discord](https://discord.gg/NousResearch)
 - 📚 [Skills Hub](https://agentskills.io)
-- 🐛 [Issues](https://github.com/NousResearch/hermes-agent/issues)
-- 💡 [Discussions](https://github.com/NousResearch/hermes-agent/discussions)
+- 🐛 [Issues](https://github.com/jdbhartley/icarus/issues)
+- 💡 [Discussions](https://github.com/jdbhartley/icarus/discussions)
 
 ## License
 

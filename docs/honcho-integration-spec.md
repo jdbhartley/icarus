@@ -1,12 +1,12 @@
 # honcho-integration-spec
 
-Comparison of Hermes Agent vs. openclaw-honcho — and a porting spec for bringing Hermes patterns into other Honcho integrations.
+Comparison of Icarus vs. openclaw-honcho — and a porting spec for bringing Hermes patterns into other Honcho integrations.
 
 ---
 
 ## Overview
 
-Two independent Honcho integrations have been built for two different agent runtimes: **Hermes Agent** (Python, baked into the runner) and **openclaw-honcho** (TypeScript plugin via hook/tool API). Both use the same Honcho peer paradigm — dual peer model, `session.context()`, `peer.chat()` — but they made different tradeoffs at every layer.
+Two independent Honcho integrations have been built for two different agent runtimes: **Icarus** (Python, baked into the runner) and **openclaw-honcho** (TypeScript plugin via hook/tool API). Both use the same Honcho peer paradigm — dual peer model, `session.context()`, `peer.chat()` — but they made different tradeoffs at every layer.
 
 This document maps those tradeoffs and defines a porting spec: a set of Hermes-originated patterns, each stated as an integration-agnostic interface, that any Honcho integration can adopt regardless of runtime or language.
 
@@ -55,7 +55,7 @@ user message
 
 ## Diff table
 
-| Dimension | Hermes Agent | openclaw-honcho |
+| Dimension | Icarus | openclaw-honcho |
 |---|---|---|
 | **Context injection timing** | Once per session (cached). Zero HTTP on response path after turn 1. | Every turn, blocking. Fresh context per turn but adds latency. |
 | **Prefetch strategy** | Daemon threads fire at turn end; consumed next turn from cache. | None. Blocking call at prompt-build time. |
@@ -71,7 +71,7 @@ user message
 | **Platform metadata** | Not stripped. | Explicitly stripped before Honcho storage. |
 | **Message dedup** | None. | `lastSavedIndex` in session metadata prevents re-sending. |
 | **CLI surface in prompt** | Management commands injected into system prompt. Agent knows its own CLI. | Not injected. |
-| **AI peer name in identity** | Replaces "Hermes Agent" in DEFAULT_AGENT_IDENTITY when configured. | Not implemented. |
+| **AI peer name in identity** | Replaces "Icarus" in DEFAULT_AGENT_IDENTITY when configured. | Not implemented. |
 | **QMD / local file search** | Not implemented. | Passthrough tools when QMD backend configured. |
 | **Workspace metadata** | Not implemented. | `agentPeerMap` in workspace metadata tracks agent→peer ID. |
 

@@ -376,7 +376,7 @@ def auth_remove_command(args) -> None:
         suppress_credential_source(provider, "device_code")
         print("Suppressed openai-codex device_code source — it will not be re-seeded.")
         print("Note: Codex CLI credentials still live in ~/.codex/auth.json")
-        print("Run `hermes auth add openai-codex` to re-enable if needed.")
+        print("Run `icarus auth add openai-codex` to re-enable if needed.")
 
     elif removed.source == "device_code" and provider == "nous":
         from hermes_cli.auth import (
@@ -402,7 +402,7 @@ def auth_remove_command(args) -> None:
         suppress_credential_source(provider, "claude_code")
         print("Suppressed claude_code credential — it will not be re-seeded.")
         print("Note: Claude Code credentials still live in ~/.claude/.credentials.json")
-        print("Run `hermes auth add anthropic` to re-enable if needed.")
+        print("Run `icarus auth add anthropic` to re-enable if needed.")
 
 
 def auth_reset_command(args) -> None:

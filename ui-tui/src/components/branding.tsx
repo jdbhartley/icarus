@@ -27,11 +27,11 @@ export function Banner({ t }: { t: Theme }) {
         <ArtLines lines={logoLines} />
       ) : (
         <Text bold color={t.color.gold}>
-          {t.brand.icon} NOUS HERMES
+          {t.brand.icon} ICARUS
         </Text>
       )}
 
-      <Text color={t.color.dim}>{t.brand.icon} Nous Research · Messenger of the Digital Gods</Text>
+      <Text color={t.color.dim}>{t.brand.icon} Nous Research · Icarus</Text>
     </Box>
   )
 }
@@ -168,7 +168,7 @@ export function SessionPanel({ info, sid, t }: SessionPanelProps) {
               - run{' '}
             </Text>
             <Text bold color="yellow">
-              {info.update_command || 'hermes update'}
+              {info.update_command || 'icarus update'}
             </Text>
             <Text bold={false} color="yellow" dimColor>
               {' '}

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: "Bundled Skills Catalog"
-description: "Catalog of bundled skills that ship with Hermes Agent"
+description: "Catalog of bundled skills that ship with Icarus"
 ---
 
 # Bundled Skills Catalog
@@ -27,7 +27,7 @@ Skills for spawning and orchestrating autonomous AI coding agents and multi-agen
 |-------|-------------|------|
 | `claude-code` | Delegate coding tasks to Claude Code (Anthropic's CLI agent). Use for building features, refactoring, PR reviews, and iterative coding. Requires the claude CLI installed. | `autonomous-ai-agents/claude-code` |
 | `codex` | Delegate coding tasks to OpenAI Codex CLI agent. Use for building features, refactoring, PR reviews, and batch issue fixing. Requires the codex CLI and a git repository. | `autonomous-ai-agents/codex` |
-| `hermes-agent` | Complete guide to using and extending Hermes Agent — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, s… | `autonomous-ai-agents/hermes-agent` |
+| `hermes-agent` | Complete guide to using and extending Icarus — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, s… | `autonomous-ai-agents/hermes-agent` |
 | `opencode` | Delegate coding tasks to OpenCode CLI agent for feature implementation, refactoring, PR review, and long-running autonomous sessions. Requires the opencode CLI installed and authenticated. | `autonomous-ai-agents/opencode` |
 
 ## creative
@@ -64,7 +64,7 @@ DevOps and infrastructure automation skills.
 
 ## dogfood
 
-Internal dogfooding and QA skills used to test Hermes Agent itself.
+Internal dogfooding and QA skills used to test Icarus itself.
 
 | Skill | Description | Path |
 |-------|-------------|------|
@@ -106,7 +106,7 @@ Skills for working with MCP (Model Context Protocol) servers, tools, and integra
 
 | Skill | Description | Path |
 |-------|-------------|------|
-| `native-mcp` | Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Hermes Agent tools. Supports stdio and HTTP transports with automatic reconnection, security filtering, and zero-config tool injection. | `mcp/native-mcp` |
+| `native-mcp` | Built-in MCP (Model Context Protocol) client that connects to external MCP servers, discovers their tools, and registers them as native Icarus tools. Supports stdio and HTTP transports with automatic reconnection, security filtering, and zero-config tool injection. | `mcp/native-mcp` |
 
 ## media
 
@@ -305,7 +305,7 @@ hermes skills install official/<category>/<skill>
 
 | Skill | Description | Path |
 |-------|-------------|------|
-| `openclaw-migration` | Migrate a user's OpenClaw customization footprint into Hermes Agent. Imports Hermes-compatible memories, SOUL.md, command allowlists, user skills, and selected workspace assets from ~/.openclaw, then reports what could not be migrated and why. | `migration/openclaw-migration` |
+| `openclaw-migration` | Migrate a user's OpenClaw customization footprint into Icarus. Imports Hermes-compatible memories, SOUL.md, command allowlists, user skills, and selected workspace assets from ~/.openclaw, then reports what could not be migrated and why. | `migration/openclaw-migration` |
 
 ## productivity
 

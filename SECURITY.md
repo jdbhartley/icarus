@@ -4,7 +4,7 @@ This document outlines the security protocols, trust model, and deployment harde
 
 ## 1. Vulnerability Reporting
 
-Hermes Agent does **not** operate a bug bounty program. Security issues should be reported via [GitHub Security Advisories (GHSA)](https://github.com/NousResearch/hermes-agent/security/advisories/new) or by emailing **security@nousresearch.com**. Do not open public issues for security vulnerabilities.
+Hermes Agent does **not** operate a bug bounty program. Security issues should be reported via [GitHub Security Advisories (GHSA)](https://github.com/jdbhartley/icarus/security/advisories/new) or by emailing **security@nousresearch.com**. Do not open public issues for security vulnerabilities.
 
 ### Required Submission Details
 - **Title & Severity:** Concise description and CVSS score/rating.

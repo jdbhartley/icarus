@@ -14,7 +14,7 @@ description: "Build an automated AI code reviewer that monitors your repos, revi
 
 ```
 ┌──────────────┐     ┌───────────────┐     ┌──────────────┐     ┌──────────────┐
-│  Cron Timer  │────▶│  Hermes Agent │────▶│  GitHub API  │────▶│  Review to   │
+│  Cron Timer  │────▶│  Icarus │────▶│  GitHub API  │────▶│  Review to   │
 │  (every 2h)  │     │  + gh CLI     │     │  (PR diffs)  │     │  Telegram/   │
 │              │     │  + skill      │     │              │     │  Discord/    │
 │              │     │  + memory     │     │              │     │  local file  │
@@ -31,7 +31,7 @@ If you have a public endpoint available, check out [Automated GitHub PR Comments
 
 ## Prerequisites
 
-- **Hermes Agent installed** — see the [Installation guide](/docs/getting-started/installation)
+- **Icarus installed** — see the [Installation guide](/docs/getting-started/installation)
 - **Gateway running** for cron jobs:
   ```bash
   hermes gateway install   # Install as a service

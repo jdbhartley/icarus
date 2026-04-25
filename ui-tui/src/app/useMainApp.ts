@@ -289,7 +289,7 @@ export function useMainApp(gw: GatewayClient) {
   // Show model name + status so users can identify the Hermes tab.
   const shortModel = ui.info?.model?.replace(/^.*\//, '') ?? ''
   const titleStatus = ui.busy ? '⏳' : '✓'
-  const terminalTitle = shortModel ? `${titleStatus} ${shortModel} — Hermes` : 'Hermes'
+  const terminalTitle = shortModel ? `${titleStatus} ${shortModel} — Icarus` : 'Icarus'
   useTerminalTitle(terminalTitle)
 
   useEffect(() => {

@@ -36,7 +36,7 @@ ACP_IMPLEMENTATION_NAME = os.getenv("ICARUS_ACP_IMPLEMENTATION_NAME", DISTRIBUTI
 
 DOCS_URL = os.getenv(
     "ICARUS_DOCS_URL",
-    "https://github.com/NousResearch/hermes-agent",
+    "https://github.com/jdbhartley/icarus",
 )
 
 GATEWAY_SERVICE_NAME_BASE = os.getenv("ICARUS_GATEWAY_SERVICE_NAME_BASE", "hermes-gateway")

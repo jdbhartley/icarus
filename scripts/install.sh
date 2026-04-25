@@ -1378,7 +1378,7 @@ print_success() {
     echo -e "   ${GREEN}icarus config edit${NC}  Open config in editor"
     echo -e "   ${GREEN}icarus gateway install${NC} Install gateway service (messaging + cron)"
     echo -e "   ${GREEN}icarus update${NC}       Update to latest version"
-    echo -e "   ${GREEN}hermes${NC}              Compatibility alias"
+    echo -e "   ${GREEN}hermes${NC}              Legacy compatibility alias"
     echo ""
 
     echo -e "${CYAN}─────────────────────────────────────────────────────────${NC}"

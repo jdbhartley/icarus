@@ -149,11 +149,11 @@ hermes webhook subscribe pr-review \
   --deliver github_comment
 ```
 
-Full automation templates gallery: [hermes-agent.nousresearch.com/docs/guides/automation-templates](https://hermes-agent.nousresearch.com/docs/guides/automation-templates)
+Full automation templates gallery: [jdbhartley.github.io/icarus/docs/guides/automation-templates](https://jdbhartley.github.io/icarus/docs/guides/automation-templates)
 
-Documentation: [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com)
+Documentation: [jdbhartley.github.io/icarus](https://jdbhartley.github.io/icarus)
 
-GitHub: [github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
+GitHub: [github.com/jdbhartley/icarus](https://github.com/jdbhartley/icarus)
 
 ---
 

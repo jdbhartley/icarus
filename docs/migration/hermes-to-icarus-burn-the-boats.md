@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document records the **docs-facing** portion of the rebrand from **Hermes Agent** to **Icarus** in the standalone repository. It explains what changed, what intentionally did **not** change, and why the remaining Hermes references are still present.
+This document records the **docs-facing** portion of the rebrand from **Icarus** to **Icarus** in the standalone repository. It explains what changed, what intentionally did **not** change, and why the remaining Hermes references are still present.
 
 Scope of this pass:
 
@@ -23,7 +23,7 @@ Out of scope for this pass:
 
 ## Executive summary
 
-The repo is now documented as **Icarus**, a standalone project, rather than as a derivative or sub-brand presented primarily as Hermes Agent.
+The repo is now documented as **Icarus**, a standalone project, rather than as a derivative or sub-brand presented primarily as Icarus.
 
 At the same time, the runtime still ships through Hermes-era compatibility surfaces such as:
 
@@ -55,17 +55,17 @@ In short: **brand now, break less, migrate the runtime later**.
 
 ### 1. Top-level README now presents the project as Icarus
 
-The old README centered Hermes Agent as the product identity. The new README now:
+The old README centered Icarus as the product identity. The new README now:
 
 - names the project **Icarus** at the top
-- describes it as the standalone continuation of the Hermes Agent codebase
+- describes it as the standalone continuation of the Icarus codebase
 - explains the compatibility boundary up front
 - keeps only the Hermes references required for real commands, paths, and packaging facts
 - points readers to this audit document for rationale
 
 ### 2. Contributor guidance now uses Icarus-first framing
 
-`AGENTS.md` previously introduced the codebase as Hermes Agent throughout. It now:
+`AGENTS.md` previously introduced the codebase as Icarus throughout. It now:
 
 - identifies the repo as **Icarus**
 - teaches contributors when to use **Icarus** versus **Hermes** language
@@ -182,7 +182,7 @@ Docs implication:
 
 Examples of acceptable retained Hermes mentions:
 
-- “standalone continuation of Hermes Agent”
+- “standalone continuation of Icarus”
 - links, issue trackers, or install surfaces still hosted under Hermes-era names
 - migration content that explains how Hermes-era assets map into the standalone Icarus presentation
 
@@ -197,7 +197,7 @@ The following style changes guided this pass:
 
 ### Rewritten
 
-- product-name headings that led with Hermes Agent
+- product-name headings that led with Icarus
 - intros that framed the repo primarily as Hermes rather than Icarus
 - generic prose saying “Hermes” where no compatibility reason required it
 - TUI and contributor docs that could safely say “Icarus” at the product level

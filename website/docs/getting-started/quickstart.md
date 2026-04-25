@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: "Quickstart"
-description: "Your first conversation with Hermes Agent — from install to chatting in under 5 minutes"
+description: "Your first conversation with Icarus — from install to chatting in under 5 minutes"
 ---
 
 # Quickstart
@@ -31,7 +31,7 @@ Pick the row that matches your goal:
 
 ---
 
-## 1. Install Hermes Agent
+## 1. Install Icarus
 
 Run the one-line installer:
 
@@ -77,7 +77,7 @@ Good defaults:
 For most first-time users: choose a provider, accept the defaults unless you know why you're changing them. The full provider catalog with env vars and setup steps lives on the [Providers](../integrations/providers.md) page.
 
 :::caution Minimum context: 64K tokens
-Hermes Agent requires a model with at least **64,000 tokens** of context. Models with smaller windows cannot maintain enough working memory for multi-step tool-calling workflows and will be rejected at startup. Most hosted models (Claude, GPT, Gemini, Qwen, DeepSeek) meet this easily. If you're running a local model, set its context size to at least 64K (e.g. `--ctx-size 65536` for llama.cpp or `-c 65536` for Ollama).
+Icarus requires a model with at least **64,000 tokens** of context. Models with smaller windows cannot maintain enough working memory for multi-step tool-calling workflows and will be rejected at startup. Most hosted models (Claude, GPT, Gemini, Qwen, DeepSeek) meet this easily. If you're running a local model, set its context size to at least 64K (e.g. `--ctx-size 65536` for llama.cpp or `-c 65536` for Ollama).
 :::
 
 :::tip

@@ -1,6 +1,6 @@
-# Migrating from OpenClaw to Hermes Agent
+# Migrating from OpenClaw to Icarus
 
-This guide covers how to import your OpenClaw settings, memories, skills, and API keys into Hermes Agent.
+This guide covers how to import your OpenClaw settings, memories, skills, and API keys into Icarus.
 
 ## Three Ways to Migrate
 
@@ -124,7 +124,7 @@ hermes claw migrate --source /path/to/.openclaw
 ```
 
 ### "Migration script not found"
-The migration script ships with Hermes Agent. If you installed via pip (not git clone), the `optional-skills/` directory may not be present. Install the skill from the Skills Hub:
+The migration script ships with Icarus. If you installed via pip (not git clone), the `optional-skills/` directory may not be present. Install the skill from the Skills Hub:
 ```bash
 hermes skills install openclaw-migration
 ```

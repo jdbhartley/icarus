@@ -1,8 +1,8 @@
 ---
 name: hermes-atropos-environments
-description: Build, test, and debug Hermes Agent RL environments for Atropos training. Covers the HermesAgentBaseEnv interface, reward functions, agent loop integration, evaluation with tools, wandb logging, and the three CLI modes (serve/process/evaluate). Use when creating, reviewing, or fixing RL environments in the hermes-agent repo.
+description: Build, test, and debug Icarus RL environments for Atropos training. Covers the HermesAgentBaseEnv interface, reward functions, agent loop integration, evaluation with tools, wandb logging, and the three CLI modes (serve/process/evaluate). Use when creating, reviewing, or fixing RL environments in the hermes-agent repo.
 version: 1.1.0
-author: Hermes Agent
+author: Icarus
 license: MIT
 metadata:
   hermes:
@@ -10,7 +10,7 @@ metadata:
     related_skills: [axolotl, fine-tuning-with-trl, lm-evaluation-harness]
 ---
 
-# Hermes Agent Atropos Environments
+# Icarus Atropos Environments
 
 Guide for building RL environments in the hermes-agent repo that integrate with the Atropos training framework.
 

@@ -15,7 +15,7 @@ const buildUiState = (): UiState => ({
   showCost: false,
   showReasoning: false,
   sid: null,
-  status: 'summoning hermes…',
+  status: 'summoning icarus…',
   statusBar: true,
   streaming: true,
   theme: DEFAULT_THEME,

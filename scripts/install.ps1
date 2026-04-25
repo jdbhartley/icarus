@@ -890,7 +890,7 @@ function Write-Completion {
     Write-Host "   icarus update       " -NoNewline -ForegroundColor Green
     Write-Host "Update to latest version"
     Write-Host "   hermes              " -NoNewline -ForegroundColor Green
-    Write-Host "Compatibility alias"
+    Write-Host "Legacy compatibility alias"
     Write-Host ""
     
     Write-Host "─────────────────────────────────────────────────────────" -ForegroundColor Cyan

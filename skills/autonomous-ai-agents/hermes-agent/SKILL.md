@@ -1,19 +1,19 @@
 ---
 name: hermes-agent
-description: Complete guide to using and extending Hermes Agent — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, spawn agent instances, or make code contributions.
+description: Complete guide to using and extending Icarus — CLI usage, setup, configuration, spawning additional agents, gateway platforms, skills, voice, tools, profiles, and a concise contributor reference. Load this skill when helping users configure Hermes, troubleshoot issues, spawn agent instances, or make code contributions.
 version: 2.0.0
-author: Hermes Agent + Teknium
+author: Icarus + Teknium
 license: MIT
 metadata:
   hermes:
     tags: [hermes, setup, configuration, multi-agent, spawning, cli, gateway, development]
-    homepage: https://github.com/NousResearch/hermes-agent
+    homepage: https://github.com/jdbhartley/icarus
     related_skills: [claude-code, codex, opencode]
 ---
 
-# Hermes Agent
+# Icarus
 
-Hermes Agent is an open-source AI agent framework by Nous Research that runs in your terminal, messaging platforms, and IDEs. It belongs to the same category as Claude Code (Anthropic), Codex (OpenAI), and OpenClaw — autonomous coding and task-execution agents that use tool calling to interact with your system. Hermes works with any LLM provider (OpenRouter, Anthropic, OpenAI, DeepSeek, local models, and 15+ others) and runs on Linux, macOS, and WSL.
+Icarus is an open-source AI agent framework by Nous Research that runs in your terminal, messaging platforms, and IDEs. It belongs to the same category as Claude Code (Anthropic), Codex (OpenAI), and OpenClaw — autonomous coding and task-execution agents that use tool calling to interact with your system. Hermes works with any LLM provider (OpenRouter, Anthropic, OpenAI, DeepSeek, local models, and 15+ others) and runs on Linux, macOS, and WSL.
 
 What makes Hermes different:
 
@@ -26,9 +26,9 @@ What makes Hermes different:
 
 People use Hermes for software development, research, system administration, data analysis, content creation, home automation, and anything else that benefits from an AI agent with persistent context and full system access.
 
-**This skill helps you work with Hermes Agent effectively** — setting it up, configuring features, spawning additional agent instances, troubleshooting issues, finding the right commands and settings, and understanding how the system works when you need to extend or contribute to it.
+**This skill helps you work with Icarus effectively** — setting it up, configuring features, spawning additional agent instances, troubleshooting issues, finding the right commands and settings, and understanding how the system works when you need to extend or contribute to it.
 
-**Docs:** https://hermes-agent.nousresearch.com/docs/
+**Docs:** https://jdbhartley.github.io/icarus/docs/
 
 ## Quick Start
 
@@ -150,7 +150,7 @@ hermes gateway setup        Configure platforms
 
 Supported platforms: Telegram, Discord, Slack, WhatsApp, Signal, Email, SMS, Matrix, Mattermost, Home Assistant, DingTalk, Feishu, WeCom, BlueBubbles (iMessage), Weixin (WeChat), API Server, Webhooks. Open WebUI connects via the API Server adapter.
 
-Platform docs: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/
+Platform docs: https://jdbhartley.github.io/icarus/docs/user-guide/messaging/
 
 ### Sessions
 
@@ -340,7 +340,7 @@ Edit with `hermes config edit` or `hermes config set section.key value`.
 | `delegation` | `model`, `provider`, `base_url`, `api_key`, `max_iterations` (50), `reasoning_effort` |
 | `checkpoints` | `enabled`, `max_snapshots` (50) |
 
-Full config reference: https://hermes-agent.nousresearch.com/docs/user-guide/configuration
+Full config reference: https://jdbhartley.github.io/icarus/docs/user-guide/configuration
 
 ### Providers
 
@@ -371,7 +371,7 @@ Full config reference: https://hermes-agent.nousresearch.com/docs/user-guide/con
 | Custom endpoint | Config | `model.base_url` + `model.api_key` in config.yaml |
 | GitHub Copilot ACP | External | `COPILOT_CLI_PATH` or Copilot CLI |
 
-Full provider docs: https://hermes-agent.nousresearch.com/docs/integrations/providers
+Full provider docs: https://jdbhartley.github.io/icarus/docs/integrations/providers
 
 ### Toolsets
 
@@ -578,18 +578,18 @@ hermes config set auxiliary.vision.model <model_name>
 
 | Looking for... | Location |
 |----------------|----------|
-| Config options | `hermes config edit` or [Configuration docs](https://hermes-agent.nousresearch.com/docs/user-guide/configuration) |
-| Available tools | `hermes tools list` or [Tools reference](https://hermes-agent.nousresearch.com/docs/reference/tools-reference) |
-| Slash commands | `/help` in session or [Slash commands reference](https://hermes-agent.nousresearch.com/docs/reference/slash-commands) |
-| Skills catalog | `hermes skills browse` or [Skills catalog](https://hermes-agent.nousresearch.com/docs/reference/skills-catalog) |
-| Provider setup | `hermes model` or [Providers guide](https://hermes-agent.nousresearch.com/docs/integrations/providers) |
-| Platform setup | `hermes gateway setup` or [Messaging docs](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/) |
-| MCP servers | `hermes mcp list` or [MCP guide](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp) |
-| Profiles | `hermes profile list` or [Profiles docs](https://hermes-agent.nousresearch.com/docs/user-guide/profiles) |
-| Cron jobs | `hermes cron list` or [Cron docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron) |
-| Memory | `hermes memory status` or [Memory docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory) |
-| Env variables | `hermes config env-path` or [Env vars reference](https://hermes-agent.nousresearch.com/docs/reference/environment-variables) |
-| CLI commands | `hermes --help` or [CLI reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands) |
+| Config options | `hermes config edit` or [Configuration docs](https://jdbhartley.github.io/icarus/docs/user-guide/configuration) |
+| Available tools | `hermes tools list` or [Tools reference](https://jdbhartley.github.io/icarus/docs/reference/tools-reference) |
+| Slash commands | `/help` in session or [Slash commands reference](https://jdbhartley.github.io/icarus/docs/reference/slash-commands) |
+| Skills catalog | `hermes skills browse` or [Skills catalog](https://jdbhartley.github.io/icarus/docs/reference/skills-catalog) |
+| Provider setup | `hermes model` or [Providers guide](https://jdbhartley.github.io/icarus/docs/integrations/providers) |
+| Platform setup | `hermes gateway setup` or [Messaging docs](https://jdbhartley.github.io/icarus/docs/user-guide/messaging/) |
+| MCP servers | `hermes mcp list` or [MCP guide](https://jdbhartley.github.io/icarus/docs/user-guide/features/mcp) |
+| Profiles | `hermes profile list` or [Profiles docs](https://jdbhartley.github.io/icarus/docs/user-guide/profiles) |
+| Cron jobs | `hermes cron list` or [Cron docs](https://jdbhartley.github.io/icarus/docs/user-guide/features/cron) |
+| Memory | `hermes memory status` or [Memory docs](https://jdbhartley.github.io/icarus/docs/user-guide/features/memory) |
+| Env variables | `hermes config env-path` or [Env vars reference](https://jdbhartley.github.io/icarus/docs/reference/environment-variables) |
+| CLI commands | `hermes --help` or [CLI reference](https://jdbhartley.github.io/icarus/docs/reference/cli-commands) |
 | Gateway logs | `~/.hermes/logs/gateway.log` |
 | Session files | `~/.hermes/sessions/` or `hermes sessions browse` |
 | Source code | `~/.hermes/hermes-agent/` |
@@ -598,7 +598,7 @@ hermes config set auxiliary.vision.model <model_name>
 
 ## Contributor Quick Reference
 
-For occasional contributors and PR authors. Full developer docs: https://hermes-agent.nousresearch.com/docs/developer-guide/
+For occasional contributors and PR authors. Full developer docs: https://jdbhartley.github.io/icarus/docs/developer-guide/
 
 ### Project Layout
 

@@ -1,6 +1,6 @@
-# Hermes Agent — ACP (Agent Client Protocol) Setup Guide
+# Icarus — ACP (Agent Client Protocol) Setup Guide
 
-Hermes Agent supports the **Agent Client Protocol (ACP)**, allowing it to run as
+Icarus supports the **Agent Client Protocol (ACP)**, allowing it to run as
 a coding agent inside your editor. ACP lets your IDE send tasks to Hermes, and
 Hermes responds with file edits, terminal commands, and explanations — all shown
 natively in the editor UI.
@@ -9,7 +9,7 @@ natively in the editor UI.
 
 ## Prerequisites
 
-- Hermes Agent installed and configured (`hermes setup` completed)
+- Icarus installed and configured (`hermes setup` completed)
 - An API key / provider set up in `~/.hermes/.env` or via `hermes login`
 - Python 3.11+
 
@@ -52,7 +52,7 @@ Open your VS Code settings (`Ctrl+,` → click the `{}` icon for JSON) and add:
 }
 ```
 
-Replace `/path/to/hermes-agent` with the actual path to your Hermes Agent
+Replace `/path/to/hermes-agent` with the actual path to your Icarus
 installation (e.g. `~/.hermes/hermes-agent`).
 
 Alternatively, if `hermes` is on your PATH, the ACP Client can discover it
@@ -60,7 +60,7 @@ automatically via the registry directory.
 
 ### 3. Restart VS Code
 
-After configuring, restart VS Code. You should see **Hermes Agent** appear in
+After configuring, restart VS Code. You should see **Icarus** appear in
 the ACP agent picker in the chat/agent panel.
 
 ---
@@ -88,7 +88,7 @@ Open Zed settings (`Cmd+,` on macOS or `Ctrl+,` on Linux) and add to your
 
 ### 2. Restart Zed
 
-Hermes Agent will appear in the agent panel. Select it and start a conversation.
+Icarus will appear in the agent panel. Select it and start a conversation.
 
 ---
 
@@ -110,13 +110,13 @@ Hermes Agent will appear in the agent panel. Select it and start a conversation.
 
 ### 3. Use the agent
 
-Open the ACP panel (usually in the right sidebar) and select **Hermes Agent**.
+Open the ACP panel (usually in the right sidebar) and select **Icarus**.
 
 ---
 
 ## What You Will See
 
-Once connected, your editor provides a native interface to Hermes Agent:
+Once connected, your editor provides a native interface to Icarus:
 
 ### Chat Panel
 A conversational interface where you can describe tasks, ask questions, and
@@ -145,7 +145,7 @@ approval before Hermes proceeds. This includes:
 
 ## Configuration
 
-Hermes Agent under ACP uses the **same configuration** as the CLI:
+Icarus under ACP uses the **same configuration** as the CLI:
 
 - **API keys / providers**: `~/.hermes/.env`
 - **Agent config**: `~/.hermes/config.yaml`
@@ -209,7 +209,7 @@ settings for auto-approval or manual-approval preferences.
 ### Logs
 
 Hermes logs are written to stderr when running in ACP mode. Check:
-- VS Code: **Output** panel → select **ACP Client** or **Hermes Agent**
+- VS Code: **Output** panel → select **ACP Client** or **Icarus**
 - Zed: **View** → **Toggle Terminal** and check the process output
 - JetBrains: **Event Log** or the ACP tool window
 
@@ -224,5 +224,5 @@ HERMES_LOG_LEVEL=DEBUG hermes acp
 ## Further Reading
 
 - [ACP Specification](https://github.com/anysphere/acp)
-- [Hermes Agent Documentation](https://github.com/NousResearch/hermes-agent)
+- [Icarus Documentation](https://github.com/jdbhartley/icarus)
 - Run `hermes --help` for all CLI options

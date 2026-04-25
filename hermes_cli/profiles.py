@@ -984,8 +984,8 @@ def rename_profile(old_name: str, new_name: str) -> Path:
 
 def generate_bash_completion() -> str:
     """Generate a bash completion script for hermes profile names."""
-    return '''# Hermes Agent profile completion
-# Add to ~/.bashrc: eval "$(hermes completion bash)"
+    return '''# Icarus profile completion
+# Add to ~/.bashrc: eval "$(icarus completion bash)"
 
 _hermes_profiles() {
     local profiles_dir="$HOME/.hermes/profiles"
@@ -1034,9 +1034,9 @@ complete -F _hermes_completion hermes
 
 def generate_zsh_completion() -> str:
     """Generate a zsh completion script for hermes profile names."""
-    return '''#compdef hermes
-# Hermes Agent profile completion
-# Add to ~/.zshrc: eval "$(hermes completion zsh)"
+    return '''#compdef icarus
+# Icarus profile completion
+# Add to ~/.zshrc: eval "$(icarus completion zsh)"
 
 _hermes() {
     local -a profiles

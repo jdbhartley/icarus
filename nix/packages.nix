@@ -104,7 +104,7 @@
 
           meta = with pkgs.lib; {
             description = "Icarus AI agent with advanced tool-calling capabilities";
-            homepage = "https://github.com/NousResearch/hermes-agent";
+            homepage = "https://github.com/jdbhartley/icarus";
             mainProgram = "icarus";
             license = licenses.mit;
             platforms = platforms.unix;

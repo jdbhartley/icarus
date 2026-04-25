@@ -5,10 +5,10 @@ class HermesAgent < Formula
   # continuity while the runtime-facing CLI brand is now Icarus.
 
   desc "Icarus AI agent that creates skills from experience"
-  homepage "https://hermes-agent.nousresearch.com"
+  homepage "https://jdbhartley.github.io/icarus"
   # Stable source should point at the semver-named sdist asset attached by
   # scripts/release.py, not the CalVer tag tarball.
-  url "https://github.com/NousResearch/hermes-agent/releases/download/v2026.3.30/hermes_agent-0.6.0.tar.gz"
+  url "https://github.com/jdbhartley/icarus/releases/download/v2026.3.30/hermes_agent-0.6.0.tar.gz"
   sha256 "<replace-with-release-asset-sha256>"
   license "MIT"
 

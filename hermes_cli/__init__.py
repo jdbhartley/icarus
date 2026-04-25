@@ -1,5 +1,5 @@
 """
-Hermes CLI - Unified command-line interface for Hermes Agent.
+Icarus CLI - Unified command-line interface for Icarus.
 
 Provides subcommands for:
 - hermes chat          - Interactive chat (same as ./hermes)
