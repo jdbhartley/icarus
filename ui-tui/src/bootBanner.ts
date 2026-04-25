@@ -5,19 +5,19 @@ const DIM = '\x1b[38;2;184;134;11m'
 const RESET = '\x1b[0m'
 
 const LOGO = [
-  '██╗  ██╗███████╗██████╗ ███╗   ███╗███████╗███████╗       █████╗  ██████╗ ███████╗███╗   ██╗████████╗',
-  '██║  ██║██╔════╝██╔══██╗████╗ ████║██╔════╝██╔════╝      ██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝',
-  '███████║█████╗  ██████╔╝██╔████╔██║█████╗  ███████╗█████╗███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║   ',
-  '██╔══██║██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══╝  ╚════██║╚════╝██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║   ',
-  '██║  ██║███████╗██║  ██║██║ ╚═╝ ██║███████╗███████║      ██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║   ',
-  '╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝      ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   '
+  '    ____                          ',
+  '   /  _/________ ________  _______',
+  '   / // ___/ __ `/ ___/ / / / ___/',
+  ' _/ // /__/ /_/ / /  / /_/ (__  ) ',
+  '/___/\\___/\\__,_/_/   \\__,_/____/  ',
+  '                                  '
 ]
 
 const GRADIENT = [GOLD, GOLD, AMBER, AMBER, BRONZE, BRONZE] as const
-const LOGO_WIDTH = 98
+const LOGO_WIDTH = 34
 
 const TAGLINE = `${DIM}⚕ Nous Research · Messenger of the Digital Gods${RESET}`
-const FALLBACK = `\x1b[1m${GOLD}⚕ NOUS HERMES${RESET}`
+const FALLBACK = `\x1b[1m${GOLD}⚕ ICARUS${RESET}`
 
 export function bootBanner(cols: number = process.stdout.columns || 80): string {
   const body = cols >= LOGO_WIDTH ? LOGO.map((text, i) => `${GRADIENT[i]}${text}${RESET}`).join('\n') : FALLBACK
