@@ -1,12 +1,12 @@
 """hermes claw — OpenClaw migration commands.
 
 Usage:
-    hermes claw migrate              # Preview then migrate (always shows preview first)
-    hermes claw migrate --dry-run    # Preview only, no changes
-    hermes claw migrate --yes        # Skip confirmation prompt
-    hermes claw migrate --preset full --overwrite  # Full migration, overwrite conflicts
-    hermes claw cleanup              # Archive leftover OpenClaw directories
-    hermes claw cleanup --dry-run    # Preview what would be archived
+    icarus claw migrate              # Preview then migrate (always shows preview first)
+    icarus claw migrate --dry-run    # Preview only, no changes
+    icarus claw migrate --yes        # Skip confirmation prompt
+    icarus claw migrate --preset full --overwrite  # Full migration, overwrite conflicts
+    icarus claw cleanup              # Archive leftover OpenClaw directories
+    icarus claw cleanup --dry-run    # Preview what would be archived
 """
 
 import importlib.util
@@ -102,12 +102,21 @@ def _detect_openclaw_processes() -> list[str]:
     else:
         try:
             result = subprocess.run(
-                ["pgrep", "-f", "openclaw"],
+                ["pgrep", "-af", "openclaw"],
                 capture_output=True, text=True, timeout=3,
             )
             if result.returncode == 0:
-                pids = result.stdout.strip().split()
-                found.append(f"openclaw process(es) (PIDs: {', '.join(pids)})")
+                matches = []
+                for line in result.stdout.strip().splitlines():
+                    lower = line.lower()
+                    if "pgrep -f openclaw" in lower or "pgrep -af openclaw" in lower:
+                        continue
+                    if "openclaw" not in lower:
+                        continue
+                    matches.append(line)
+                if matches:
+                    pids = [line.split(None, 1)[0] for line in matches]
+                    found.append(f"openclaw process(es) (PIDs: {', '.join(pids)})")
         except (FileNotFoundError, subprocess.TimeoutExpired):
             pass
 
@@ -291,13 +300,13 @@ def claw_command(args):
     elif action in ("cleanup", "clean"):
         _cmd_cleanup(args)
     else:
-        print("Usage: hermes claw <command> [options]")
+        print("Usage: icarus claw <command> [options]")
         print()
         print("Commands:")
-        print("  migrate          Migrate settings from OpenClaw to Hermes")
+        print("  migrate          Migrate settings from OpenClaw to Icarus")
         print("  cleanup          Archive leftover OpenClaw directories after migration")
         print()
-        print("Run 'hermes claw <command> --help' for options.")
+        print("Run 'icarus claw <command> --help' for options.")
 
 
 def _cmd_migrate(args):
@@ -335,7 +344,7 @@ def _cmd_migrate(args):
     )
     print(
         color(
-            "│          ⚕ Hermes — OpenClaw Migration                 │",
+            "│          ⚕ Icarus — OpenClaw Migration                 │",
             Colors.MAGENTA,
         )
     )
@@ -351,7 +360,7 @@ def _cmd_migrate(args):
         print()
         print_error(f"OpenClaw directory not found: {source_dir}")
         print_info("Make sure your OpenClaw installation is at the expected path.")
-        print_info("You can specify a custom path: hermes claw migrate --source /path/to/.openclaw")
+        print_info("You can specify a custom path: icarus claw migrate --source /path/to/.openclaw")
         return
 
     # Find the migration script
@@ -452,7 +461,7 @@ def _cmd_migrate(args):
     if not auto_yes:
         if not sys.stdin.isatty():
             print_info("Non-interactive session — preview only.")
-            print_info("To execute, re-run with: hermes claw migrate --yes")
+            print_info("To execute, re-run with: icarus claw migrate --yes")
             return
         if not prompt_yes_no("Proceed with migration?", default=True):
             print_info("Migration cancelled.")
@@ -483,7 +492,7 @@ def _cmd_migrate(args):
 
     # Source directory is left untouched — archiving is not the migration
     # tool's responsibility.  Users who want to clean up can run
-    # 'hermes claw cleanup' separately.
+    # 'icarus claw cleanup' separately.
 
 
 def _cmd_cleanup(args):
@@ -505,7 +514,7 @@ def _cmd_cleanup(args):
     )
     print(
         color(
-            "│          ⚕ Hermes — OpenClaw Cleanup                   │",
+            "│          ⚕ Icarus — OpenClaw Cleanup                   │",
             Colors.MAGENTA,
         )
     )
@@ -546,7 +555,7 @@ def _cmd_cleanup(args):
                 print_info("Non-interactive session — aborting. Stop OpenClaw and re-run.")
                 return
             if not prompt_yes_no("Proceed anyway?", default=False):
-                print_info("Aborted. Stop OpenClaw first, then re-run: hermes claw cleanup")
+                print_info("Aborted. Stop OpenClaw first, then re-run: icarus claw cleanup")
                 return
 
     total_archived = 0
@@ -600,7 +609,7 @@ def _cmd_cleanup(args):
             print_info(f"Would archive: {source_dir} → {archive_path}")
         elif not auto_yes and not sys.stdin.isatty():
             print_info(f"Non-interactive session — would archive: {source_dir}")
-            print_info("To execute, re-run with: hermes claw cleanup --yes")
+            print_info("To execute, re-run with: icarus claw cleanup --yes")
         else:
             if auto_yes or prompt_yes_no(f"Archive {source_dir}?", default=True):
                 try:
@@ -713,7 +722,7 @@ def _print_migration_report(report: dict, dry_run: bool):
     if dry_run:
         print()
         print_info("To execute the migration, run without --dry-run:")
-        print_info(f"  hermes claw migrate --preset {report.get('preset', 'full')}")
+        print_info(f"  icarus claw migrate --preset {report.get('preset', 'full')}")
     elif migrated:
         print()
         print_success("Migration complete!")
@@ -728,7 +737,7 @@ def _print_migration_report(report: dict, dry_run: bool):
             print(color("  Your OPENROUTER_API_KEY and other provider keys must be added manually.", Colors.YELLOW))
             print()
             print_info("To migrate API keys, re-run with:")
-            print_info("  hermes claw migrate --migrate-secrets")
+            print_info("  icarus claw migrate --migrate-secrets")
             print()
             print_info("Or add your key manually:")
-            print_info("  hermes config set OPENROUTER_API_KEY sk-or-v1-...")
+            print_info("  icarus config set OPENROUTER_API_KEY sk-or-v1-...")

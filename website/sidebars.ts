@@ -165,6 +165,7 @@ const sidebars: SidebarsConfig = {
         'guides/github-pr-review-agent',
         'guides/webhook-github-pr-review',
         'guides/migrate-from-openclaw',
+        'guides/migrate-from-hermes',
         'guides/aws-bedrock',
       ],
     },

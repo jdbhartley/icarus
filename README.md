@@ -15,17 +15,18 @@
 
 This repository is the **burn-the-boats** standalone continuation of the Hermes Agent codebase. The project is now presented as **Icarus** at the documentation layer, while some shipped identifiers still intentionally retain Hermes-era names for compatibility.
 
-## Naming status: Icarus project, Hermes-era runtime identifiers
+## Naming status: Icarus project, selective Hermes-era internals
 
-Today, the user-facing project name is **Icarus**. However, because packaging metadata and runtime identifiers are intentionally out of scope for this docs-only rebrand pass, you will still encounter:
+Today, the primary install and CLI identity is **Icarus**. This standalone repo now ships Icarus-first package metadata, ACP metadata, CLI entrypoints, and fresh-install home defaults.
 
-- package metadata such as `hermes-agent`
-- CLI entrypoints such as `hermes`
-- config and state paths such as `~/.hermes`
-- environment variables such as `HERMES_HOME` and `HERMES_TUI`
-- internal module/class names such as `HermesCLI`
+Hermes-era names still remain in a narrower set of places:
 
-Those names are retained for continuity and upgrade safety until the code and packaging migration happens. See [docs/migration/hermes-to-icarus-burn-the-boats.md](docs/migration/hermes-to-icarus-burn-the-boats.md) for the audit trail.
+- internal module/package names such as `hermes_cli`
+- compatibility aliases such as the legacy `hermes` command
+- some historical docs, release notes, and migration material
+- selected env vars and runtime identifiers retained for upgrade safety
+
+See [docs/migration/hermes-to-icarus-burn-the-boats.md](docs/migration/hermes-to-icarus-burn-the-boats.md) for the audit trail.
 
 ## What Icarus does
 
@@ -42,56 +43,62 @@ Those names are retained for continuity and upgrade safety until the code and pa
 
 ## Quick install
 
-The current install surface still uses Hermes-era package and binary names:
+The standalone install surface is now Icarus-first:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/NousResearch/icarus/main/scripts/install.sh | bash
 ```
 
-After install, launch Icarus through the current compatibility binary:
+After install, launch Icarus directly:
 
 ```bash
 source ~/.bashrc    # or: source ~/.zshrc
-hermes              # launches the current Icarus runtime
+icarus              # launches the Icarus runtime
 ```
 
 Platform notes:
 
 - **Linux / macOS / WSL2:** supported by the installer above.
-- **Android / Termux:** use the tested Termux guide in `website/docs/getting-started/termux.md`. Termux still relies on the curated Hermes-era extras split.
+- **Android / Termux:** use the tested Termux guide in `website/docs/getting-started/termux.md`. Some Termux wiring still references legacy Hermes internals.
 - **Windows:** use WSL2. Native Windows remains unsupported.
 
 ---
 
 ## Getting started
 
-Use the existing CLI entrypoint, but read it as “launch Icarus”:
+Use the Icarus CLI directly:
 
 ```bash
-hermes              # start an interactive Icarus session
-hermes --tui        # launch the Ink-based terminal UI
-hermes model        # choose a provider/model
-hermes tools        # enable or disable toolsets
-hermes config set   # update individual config values
-hermes gateway      # start the messaging gateway
-hermes setup        # run the interactive setup flow
-hermes update       # update the installed runtime
-hermes doctor       # diagnose setup issues
+icarus              # start an interactive Icarus session
+icarus --tui        # launch the Ink-based terminal UI
+icarus model        # choose a provider/model
+icarus tools        # enable or disable toolsets
+icarus config set   # update individual config values
+icarus gateway      # start the messaging gateway
+icarus setup        # run the interactive setup flow
+icarus update       # update the installed runtime
+icarus doctor       # diagnose setup issues
 ```
 
-If you are migrating from OpenClaw, the compatibility migration command still exists:
+If you are migrating from OpenClaw, the migration command still exists:
 
 ```bash
-hermes claw migrate
+icarus claw migrate
+```
+
+If you already have a legacy Hermes home directory and want to move it into the new Icarus default home:
+
+```bash
+icarus migrate-from-hermes
 ```
 
 ## CLI vs messaging quick reference
 
-Icarus has two main operating modes: direct terminal use and gateway-driven messaging. The current commands remain Hermes-era for compatibility.
+Icarus has two main operating modes: direct terminal use and gateway-driven messaging.
 
 | Action | Terminal | Messaging |
 |---|---|---|
-| Start chatting | `hermes` or `hermes --tui` | Run `hermes gateway setup` + `hermes gateway start`, then message the bot |
+| Start chatting | `icarus` or `icarus --tui` | Run `icarus gateway setup` + `icarus gateway start`, then message the bot |
 | Start a fresh session | `/new` or `/reset` | `/new` or `/reset` |
 | Change model | `/model [provider:model]` | `/model [provider:model]` |
 | Set personality | `/personality [name]` | `/personality [name]` |
@@ -116,13 +123,13 @@ This repo still contains a substantial Hermes-branded docs tree under `website/d
 
 ## Contributing
 
-Icarus is now documented as a standalone project, but the development bootstrap remains compatibility-based:
+Icarus is now documented and packaged as a standalone project:
 
 ```bash
-git clone https://github.com/NousResearch/hermes-agent.git
-cd hermes-agent
+git clone https://github.com/NousResearch/icarus.git
+cd icarus
 ./setup-hermes.sh
-./hermes
+./icarus
 ```
 
 Manual equivalent:
@@ -147,11 +154,10 @@ For contributor-facing naming guidance, see [AGENTS.md](AGENTS.md).
 
 ## Historical and compatibility references
 
-The following Hermes references are intentionally retained in docs when they point to real, current compatibility surfaces:
+The following Hermes references are intentionally retained in docs when they point to real compatibility or historical surfaces:
 
-- the installer URL and repo path under `NousResearch/hermes-agent`
-- the `hermes` executable and related subcommands
-- `~/.hermes` and `HERMES_HOME`
+- the legacy `hermes` executable alias
+- explicit `HERMES_HOME` compatibility handling
 - Hermes-named Python modules, classes, extras, and scripts
 - migration guidance that explicitly describes movement from older Hermes/OpenClaw surfaces
 

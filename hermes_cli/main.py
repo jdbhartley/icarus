@@ -8021,14 +8021,14 @@ Examples:
     claw_parser = subparsers.add_parser(
         "claw",
         help="OpenClaw migration tools",
-        description="Migrate settings, memories, skills, and API keys from OpenClaw to Hermes",
+        description="Migrate settings, memories, skills, and API keys from OpenClaw into Icarus",
     )
     claw_subparsers = claw_parser.add_subparsers(dest="claw_action")
 
     # claw migrate
     claw_migrate = claw_subparsers.add_parser(
         "migrate",
-        help="Migrate from OpenClaw to Hermes",
+        help="Migrate from OpenClaw to Icarus",
         description="Import settings, memories, skills, and API keys from an OpenClaw installation. "
         "Always shows a preview before making changes.",
     )
@@ -8094,6 +8094,42 @@ Examples:
         claw_command(args)
 
     claw_parser.set_defaults(func=cmd_claw)
+
+    # =========================================================================
+    # migrate-from-hermes command
+    # =========================================================================
+    migrate_from_hermes_parser = subparsers.add_parser(
+        "migrate-from-hermes",
+        help="Copy an existing ~/.hermes home into ~/.icarus",
+        description="Preview and migrate a legacy Hermes home directory into Icarus. "
+        "Always shows a preview before making changes.",
+    )
+    migrate_from_hermes_parser.add_argument(
+        "--source", help="Path to legacy Hermes home (default: ~/.hermes)"
+    )
+    migrate_from_hermes_parser.add_argument(
+        "--target", help="Path to Icarus home (default: ~/.icarus)"
+    )
+    migrate_from_hermes_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview only — stop after showing what would be migrated",
+    )
+    migrate_from_hermes_parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Overwrite existing files in the Icarus home (default: skip conflicts)",
+    )
+    migrate_from_hermes_parser.add_argument(
+        "--yes", "-y", action="store_true", help="Skip confirmation prompts"
+    )
+
+    def cmd_migrate_from_hermes(args):
+        from hermes_cli.migrate_from_hermes import migrate_from_hermes_command
+
+        migrate_from_hermes_command(args)
+
+    migrate_from_hermes_parser.set_defaults(func=cmd_migrate_from_hermes)
 
     # =========================================================================
     # version command

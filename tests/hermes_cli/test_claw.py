@@ -642,7 +642,7 @@ class TestDetectOpenclawProcesses:
                 # systemd check misses, pgrep finds openclaw
                 mock_subprocess.run.side_effect = [
                     MagicMock(returncode=1, stdout=""),  # systemctl
-                    MagicMock(returncode=0, stdout="1234\n"),  # pgrep
+                    MagicMock(returncode=0, stdout="1234 python openclaw.py\n"),  # pgrep -af
                 ]
                 mock_subprocess.TimeoutExpired = subprocess.TimeoutExpired
                 result = claw_mod._detect_openclaw_processes()
@@ -656,6 +656,18 @@ class TestDetectOpenclawProcesses:
                 mock_subprocess.run.side_effect = [
                     MagicMock(returncode=1, stdout=""),  # systemctl (not found)
                     MagicMock(returncode=1, stdout=""),  # pgrep
+                ]
+                mock_subprocess.TimeoutExpired = subprocess.TimeoutExpired
+                result = claw_mod._detect_openclaw_processes()
+                assert result == []
+
+    def test_ignores_pgrep_self_match_false_positive(self):
+        with patch.object(claw_mod, "sys") as mock_sys:
+            mock_sys.platform = "linux"
+            with patch.object(claw_mod, "subprocess") as mock_subprocess:
+                mock_subprocess.run.side_effect = [
+                    MagicMock(returncode=1, stdout=""),
+                    MagicMock(returncode=0, stdout="54058 bash -c pgrep -af openclaw\n"),
                 ]
                 mock_subprocess.TimeoutExpired = subprocess.TimeoutExpired
                 result = claw_mod._detect_openclaw_processes()
