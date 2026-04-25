@@ -6,7 +6,7 @@
 # Uses uv for desktop/server installs and Python's stdlib venv + pip on Termux.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/NousResearch/icarus/main/scripts/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/jdbhartley/icarus/main/scripts/install.sh | bash
 #
 # Or with options:
 #   curl -fsSL ... | bash -s -- --no-venv --skip-setup
@@ -26,8 +26,8 @@ NC='\033[0m' # No Color
 BOLD='\033[1m'
 
 # Configuration
-REPO_URL_SSH="git@github.com:NousResearch/icarus.git"
-REPO_URL_HTTPS="https://github.com/NousResearch/icarus.git"
+REPO_URL_SSH="git@github.com:jdbhartley/icarus.git"
+REPO_URL_HTTPS="https://github.com/jdbhartley/icarus.git"
 ICARUS_HOME="${ICARUS_HOME:-$HOME/.icarus}"
 HERMES_HOME="${HERMES_HOME:-$ICARUS_HOME}"
 INSTALL_DIR="${ICARUS_INSTALL_DIR:-${HERMES_INSTALL_DIR:-$HERMES_HOME/icarus-agent}}"
@@ -220,7 +220,7 @@ detect_os() {
             OS="windows"
             DISTRO="windows"
             log_error "Windows detected. Please use the PowerShell installer:"
-            log_info "  irm https://raw.githubusercontent.com/NousResearch/icarus/main/scripts/install.ps1 | iex"
+            log_info "  irm https://raw.githubusercontent.com/jdbhartley/icarus/main/scripts/install.ps1 | iex"
             exit 1
             ;;
         *)
